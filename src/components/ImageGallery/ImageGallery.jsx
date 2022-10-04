@@ -1,6 +1,6 @@
 import React from "react";
 // import { Component } from "react";
-import ImageGalleryItem from "./ImageGalleryItem/ImageGalleryItem"
+import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem"
 import PropTypes from "prop-types"
 import styles from './ImageGallery.module.css'
 

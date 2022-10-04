@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types"
 import styles from './ImageGalleryItem.module.css'
 
- const ImageGalleryItem = ({ webURL, tags, largeImageURL, onImage }) => {
+ const ImageGalleryItem = ({ webURL, tags, largeImageURL, onImage}) => {
   return (
     <>
       
