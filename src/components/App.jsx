@@ -3,7 +3,7 @@ import { Component } from "react";
 import axios from "axios";
 import Notiflix from "notiflix";
 import ImageGallery from "./ImageGallery/ImageGallery";
-import ImageGalleryItem from "./ImageGalleryItem/ImageGalleryItem";
+// import ImageGalleryItem from "./ImageGalleryItem/ImageGalleryItem";
 import LoadMoreBtn from "./Button/Button"
 import Modal from "./Modal/Modal";
 import Loader from "./Loader/Loader" 
@@ -78,9 +78,9 @@ export default class App extends Component {
         {loading && <Loader />}
         {error && <p>Oops! Something went wrong!</p>}
         {hits && (
-          <ImageGallery>
-            <ImageGalleryItem images={hits} onImage={this.toggleModal} />
-          </ImageGallery>
+          <ImageGallery images={hits} onImage={this.toggleModal} />
+          //   <ImageGalleryItem images={hits} onImage={this.toggleModal} />
+          // </ImageGallery>
         )}
 
         {showModal && (
