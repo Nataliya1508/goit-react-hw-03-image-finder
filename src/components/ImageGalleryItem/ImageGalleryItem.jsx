@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types"
 import styles from './ImageGalleryItem.module.css'
 
- const ImageGalleryItem = ({ webURL, tags, largeImageURL, onImage}) => {
+ const ImageGalleryItem = ({ src, tags, largeImageURL, onImage}) => {
   return (
     <>
       
@@ -10,7 +10,7 @@ import styles from './ImageGalleryItem.module.css'
       
         onClick={() => onImage(largeImageURL)}>
         <img className={styles.ImageGalleryItemImage}
-           src={webURL}
+           src={src}
             alt={tags}
           />
         </li>
@@ -21,9 +21,12 @@ import styles from './ImageGalleryItem.module.css'
 
 ImageGalleryItem.propTypes = {
   
-  webURL: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
   largeImageURL: PropTypes.string,
   tags: PropTypes.string.isRequired,
   onImage: PropTypes.func.isRequired,
 };
 export default ImageGalleryItem;
+
+
+

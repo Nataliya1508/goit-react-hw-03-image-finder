@@ -55,7 +55,7 @@ class Modal extends Component {
 export default Modal;
 
 Modal.propTypes = {
-  url: PropTypes.string,
-  alt: PropTypes.string,
-  handleBackdpropClick: PropTypes.func,
+  url: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  handleBackdpropClick: PropTypes.func.isRequired,
 };

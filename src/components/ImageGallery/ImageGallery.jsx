@@ -1,5 +1,4 @@
 import React from "react";
-// import { Component } from "react";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem"
 import PropTypes from "prop-types"
 import styles from './ImageGallery.module.css'
@@ -14,11 +13,11 @@ const  ImageGallery = ({ images, onImage }) => {
         {images.map(({ id, webformatURL, largeImageURL, tags }) => (
           <ImageGalleryItem
             key={id}
-            webURL={webformatURL}
+            src={webformatURL}
             largeImageURL={largeImageURL}
             className={styles.ImageGalleryItemImage}
             tags={tags}
-            onClick={onImage}
+            onImage={onImage}
           />
           
       ))}
@@ -43,3 +42,4 @@ ImageGallery.propTypes = {
 };
 
 export default ImageGallery;
+

@@ -8,7 +8,6 @@ import styles from './SearchBar.module.css'
 export default class Searchbar extends Component {
   state = {
     name: '',
-    page: 1,
   };
 
   handleChange = e => {

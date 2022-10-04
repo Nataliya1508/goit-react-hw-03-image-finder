@@ -78,10 +78,10 @@ export default class App extends Component {
         {loading && <Loader />}
         {error && <p>Oops! Something went wrong!</p>}
         {hits && (
-          <ImageGallery images={hits} onImage={this.toggleModal} />
-          //   <ImageGalleryItem images={hits} onImage={this.toggleModal} />
-          // </ImageGallery>
-        )}
+          <ImageGallery images={hits} onImage={this.toggleModal} />)}
+        {/* // <ImageGallery>
+        // <ImageGalleryItem images={hits} onImage={this.toggleModal} />
+        // </ImageGallery> )}  */}
 
         {showModal && (
           <Modal onClose={this.toggleModal} url={largeImageURL} alt={tags} />
