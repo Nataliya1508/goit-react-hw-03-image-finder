@@ -36,11 +36,7 @@ export default class App extends Component {
         if (!data.total) {
           throw new Error('No images found');
         }
-        if (data.total > hits.length + perPage) {
-          this.setState({ showLoadMore: true });
-        } else if (hits.length + perPage >= data.total) {
-          this.setState({ showLoadMore: false });
-        }
+      
         this.setState({
           totalImages: data.totalHits,
           hits: [...hits, ...data.hits],
@@ -54,9 +50,6 @@ export default class App extends Component {
     }
   }
 
-//   handleFormSubmit = query => {
-//     this.setState({ query, page: 1, hits: [] });
-// }
   
   handleFormSubmit = query => {
     if (query !== this.state.query) {
@@ -74,12 +67,10 @@ export default class App extends Component {
 
 
   loadMore = () => {
-    // this.searchImages(this.state);
-    const { hits } = this.state;
     this.setState(({ page }) => {
       return {
         page: page + 1,
-        total: hits.length + perPage
+       
       }
     })
   };
@@ -88,7 +79,7 @@ export default class App extends Component {
 
 
   render() {
-    const { hits, showModal, loading, largeImageURL, tags, error } = this.state;
+    const { hits, showModal, loading, largeImageURL, tags, error, totalImages } = this.state;
 
     return (
       <div>
