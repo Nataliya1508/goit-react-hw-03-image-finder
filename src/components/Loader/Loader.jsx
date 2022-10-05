@@ -3,15 +3,15 @@ import styles from './Loader.module.css'
 
 const Loader = () => {
     return (
-        <div classname={styles.Loader}>
+        <div className={styles.Loader}>
             <Grid
-                height="100"
-                width="100"
-                radius="12"
+                height={100}
+                width={100}
+                radius={12}
                 color="teel"
                 ariaLabel="grid-loading"
-                wrapperClass={{}}
-                wrapperStyle=" "
+                // wrapperClass={{}}
+                // wrapperStyle=" "
             visible={true} />
         </div>
     )

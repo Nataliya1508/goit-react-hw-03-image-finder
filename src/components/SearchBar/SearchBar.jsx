@@ -20,20 +20,29 @@ export default class Searchbar extends Component {
     this.setState({ name: value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  // handleSubmit = e => {
+  //   e.preventDefault();
   
     
 
-    if (this.state.name.trim() === '') {
-      Notiflix.Notify.failure(
-        'You have to enter something first to search for images!'
-      );
+  //   if (this.state.name.trim() === '') {
+  //     Notiflix.Notify.failure(
+  //       'You have to enter something first to search for images!'
+  //     );
       
-      return;
-    }
+  //     return;
+  //   }
+ handleSubmit = e => {
+   e.preventDefault();
+   const valueInput = this.state.name.trim();
+   if (!valueInput) {
+   Notiflix.Notify.failure(
+     'You have to enter something first to search for images!')
+     return;
+}
 
-    this.props.onSubmit(this.state);
+   this.props.onSubmit(valueInput);
+   this.setState({ name: ''})
 
   
   

@@ -28,6 +28,7 @@ export default class App extends Component {
   async componentDidUpdate(_, prevstate) {
     const { page, query, hits } = this.state;
     if (prevstate.query !== query || prevstate.page !== page) {
+      
       this.setState({ loading: true });
     
       try {
@@ -45,6 +46,7 @@ export default class App extends Component {
           hits: [...hits, ...data.hits],
           loading: false,
         });
+  
       } catch (error) {
         console.error(error.message);
         this.setState({ loading: false, showLoadMore: false });
@@ -52,9 +54,15 @@ export default class App extends Component {
     }
   }
 
+//   handleFormSubmit = query => {
+//     this.setState({ query, page: 1, hits: [] });
+// }
+  
   handleFormSubmit = query => {
-    this.setState({ query, page: 1, images: [] });
-}
+    if (query !== this.state.query) {
+       this.setState({ query: query, page: 1, hits: []});
+    }
+  }
 
   toggleModal = (imageURL, tag) => {
     this.setState(({ showModal }) => ({
@@ -66,7 +74,14 @@ export default class App extends Component {
 
 
   loadMore = () => {
-    this.searchImages(this.state);
+    // this.searchImages(this.state);
+    const { hits } = this.state;
+    this.setState(({ page }) => {
+      return {
+        page: page + 1,
+        total: hits.length + perPage
+      }
+    })
   };
 
 
