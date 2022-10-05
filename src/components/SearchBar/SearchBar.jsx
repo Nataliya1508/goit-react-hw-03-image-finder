@@ -8,8 +8,13 @@ import styles from './SearchBar.module.css'
 export default class Searchbar extends Component {
   state = {
     name: '',
+    
   };
-
+  // componentDidUpdate(_, prevState) {
+  //   if (prevState.name !== this.state.name || prevState.page !== this.state.page) {
+  //     this.onSubmitHandler();
+  //   }
+  // }
   handleChange = e => {
     const { value } = e.currentTarget;
     this.setState({ name: value });
@@ -17,20 +22,27 @@ export default class Searchbar extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+  
+    
 
     if (this.state.name.trim() === '') {
       Notiflix.Notify.failure(
         'You have to enter something first to search for images!'
       );
+      
       return;
     }
 
-    this.props.onSubmitHandler(this.state);
+    this.props.onSubmit(this.state);
+
+  
+  
 
     this.reset();
   };
 
   reset() {
+    
     this.setState({ name: '' });
   }
 
@@ -66,5 +78,5 @@ export default class Searchbar extends Component {
 }
 
 Searchbar.propTypes = {
-    onSubmitHandler: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
 }
